@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "arkadditions",
+  "version": "${version}",
+
+  "name": "Ark additions",
+  "description": "Add something about Arknights in your Minecraft!",
+  "authors": [
+    "Baka632"
+  ],
+  "contact": {
+    "sources": "https://github.com/Baka632/ark-additions"
+  },
+
+  "license": "MIT",
+  "icon": "assets/arkadditions/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.baka632.arkadditions.ArkAdditions"
+    ]
+  },
+  "mixins": [
+    "arkadditions.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.11.3",
+    "fabric": "*",
+    "minecraft": "1.18.x",
+    "java": ">=17"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}

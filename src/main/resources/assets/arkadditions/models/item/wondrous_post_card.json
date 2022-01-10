@@ -1,0 +1,6 @@
+{
+    "parent": "item/generated",
+    "textures": {
+      "layer0": "arkadditions:item/wondrous_post_card"
+    }
+  }
