@@ -37,7 +37,8 @@ public class ArkAdditions implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 
-		LOGGER.info("欢迎游玩ArkAdditions模组!");
+		LOGGER.info("Welcome from Ark Additions!");
+		//Register Items
 		Registry.register(Registry.ITEM, new Identifier(MODID, "wondrous_post_card"), WONDROUS_POST_CARD);
 
 		ModLootTable.init();
