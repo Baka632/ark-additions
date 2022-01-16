@@ -15,8 +15,9 @@ public class ModLootTable {
     public static void init(){
         //Listen to loot table events
 		LootTableLoadingCallback.EVENT.register((resourceManager, lootManager, id, table, setter) -> {
-			if (id.toString().contains("village")) {
-                LootTable customTable = lootManager.getTable(new Identifier("arkadditions:chests/village_addition"));
+			String scrTableId = id.toString();
+			if (scrTableId.contains("village") && scrTableId.contains("chests")) {
+                LootTable customTable = lootManager.getTable(new Identifier("arkadditions:chests/village_additions"));
 				if (customTable != null) {
                     table.copyFrom(customTable);
                 }
