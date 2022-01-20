@@ -7,9 +7,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 
+import com.baka632.arkadditions.init.ClientInit;
 import com.baka632.arkadditions.init.ModBlocks;
+import com.baka632.arkadditions.init.ModEntities;
 import com.baka632.arkadditions.init.ModItems;
-import com.baka632.arkadditions.init.ModLootTable;
+import com.baka632.arkadditions.init.ModLootTables;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -32,9 +34,9 @@ public class ArkAdditions implements ModInitializer {
 		// Proceed with mild caution.
 
 		LOGGER.info("Welcome from Ark Additions!");
-
 		ModItems.init();
 		ModBlocks.init();
-		ModLootTable.init();
+		ModLootTables.init();
+		ModEntities.init();
 	}
 }

@@ -19,6 +19,9 @@
   "entrypoints": {
     "main": [
       "com.baka632.arkadditions.ArkAdditions"
+    ],
+    "client": [
+      "com.baka632.arkadditions.init.ClientInit"
     ]
   },
   "mixins": [

@@ -7,8 +7,8 @@ import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
 import net.minecraft.loot.LootTable;
 import net.minecraft.util.Identifier;
 
-public class ModLootTable {
-	private ModLootTable(){
+public class ModLootTables {
+	private ModLootTables(){
 
 	}
 
