@@ -2,5 +2,7 @@
     "itemGroup.arkadditions.arkadditions_itemgroup" : "Ark Additons",
     "item.arkadditions.wondrous_post_card" : "奇景明信片",
     "item.arkadditions.wondrous_post_card.tooltip" : "不同的故事根植于不同的风土，景物总是无言地诉说",
-    "item.arkadditions.wondrous_post_card.tooltip.tradable" : "可用来与各地办事处的工作人员交换物资"
+    "item.arkadditions.wondrous_post_card.tooltip.tradable" : "可用来与各地办事处的工作人员交换物资",
+    "item.arkadditions.originium_ingot" : "源石锭",
+    "entity.arkadditions.rusthammer_trader" : "锈锤商人"
 }

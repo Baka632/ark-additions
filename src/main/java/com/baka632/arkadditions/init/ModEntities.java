@@ -15,7 +15,7 @@ public class ModEntities {
     public static final EntityType<RusthammerTrader> RUSTHAMMER_TRADER = Registry.register(
             Registry.ENTITY_TYPE,
             new Identifier(ArkAdditions.MODID, "rusthammer_trader"),
-            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, RusthammerTrader::new).dimensions(EntityDimensions.fixed(0.75f, 0.75f)).build()
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, RusthammerTrader::new).dimensions(EntityDimensions.fixed(0.75f, 2f)).build()
     );
     
     public static void init() {

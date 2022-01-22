@@ -12,9 +12,11 @@ import net.minecraft.util.registry.Registry;
 public class ModItems {
 
     public static final Item WONDROUS_POST_CARD = new WondrousPostCard(new FabricItemSettings().group(ArkAdditions.ITEM_GROUP).rarity(Rarity.UNCOMMON));
+    public static final Item ORIGINIUM_INGOT = new Item(new FabricItemSettings().group(ArkAdditions.ITEM_GROUP).rarity(Rarity.UNCOMMON));
     
     public static void init() {
         Registry.register(Registry.ITEM, new Identifier(ArkAdditions.MODID, "wondrous_post_card"), WONDROUS_POST_CARD);
+        Registry.register(Registry.ITEM, new Identifier(ArkAdditions.MODID, "originium_ingot"), ORIGINIUM_INGOT);
     }
     
     private ModItems(){

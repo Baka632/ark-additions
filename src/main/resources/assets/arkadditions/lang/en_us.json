@@ -2,5 +2,7 @@
     "itemGroup.arkadditions.arkadditions_itemgroup" : "Ark Additons",
     "item.arkadditions.wondrous_post_card" : "Wondrous Postcard",
     "item.arkadditions.wondrous_post_card.tooltip" : "Different stories take root in different lands, and the scenery is always there to tell without a word",
-    "item.arkadditions.wondrous_post_card.tooltip.tradable" : "Can be used to exchange for goods with the staff of branch offices everywhere"
+    "item.arkadditions.wondrous_post_card.tooltip.tradable" : "Can be used to exchange for goods with the staff of branch offices everywhere",
+    "item.arkadditions.originium_ingot" : "Originium Ingot",
+    "entity.arkadditions.rusthammer_trader" : "Rusthammer trader"
 }
