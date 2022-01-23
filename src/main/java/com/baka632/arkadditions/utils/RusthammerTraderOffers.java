@@ -20,10 +20,12 @@ public class RusthammerTraderOffers {
     static{
         //TODO:Add MORE things!
         Factory[] factories = new Factory[]{
-            getRusthammerTraderTradeFactory(Items.TOTEM_OF_UNDYING, 16, 1, 5, 10),
-            getRusthammerTraderTradeFactory(ModItems.WONDROUS_POST_CARD, 3, 2, 20, 10),
-            getRusthammerTraderTradeFactory(Items.NETHERITE_INGOT, 20, 4, 10, 20),
-            getRusthammerTraderTradeFactory(Items.GOLDEN_APPLE, 4, 2, 10, 10)
+            getRusthammerTradeFactory(Items.TOTEM_OF_UNDYING, 16, 1, 5, 10),
+            getRusthammerTradeFactory(ModItems.WONDROUS_POST_CARD, 3, 2, 20, 10),
+            getRusthammerTradeFactory(Items.NETHERITE_INGOT, 20, 4, 10, 20),
+            getRusthammerTradeFactory(Items.GOLDEN_APPLE, 4, 2, 10, 10),
+            getRusthammerBuyFactory(Items.BREAD, 2, 5, 5),
+            getRusthammerBuyFactory(Items.IRON_INGOT, 2, 20, 10)
         };
         RUSTHAMMER_TRADER_TRADES = copyToFastUtilMap(Map.of(1, factories));
     }
@@ -32,7 +34,11 @@ public class RusthammerTraderOffers {
         return new Int2ObjectOpenHashMap<>(map);
     }
 
-    private static RusthammerTraderTradeFactory getRusthammerTraderTradeFactory(Item item,int price,int count,int maxUses,int experience){
-        return new RusthammerTraderTradeFactory(item, price, count, maxUses, experience);
+    private static RusthammerTradeFactory getRusthammerTradeFactory(Item item,int price,int count,int maxUses,int experience){
+        return new RusthammerTradeFactory(item, price, count, maxUses, experience);
+    }
+
+    private static RusthammerBuyFactory getRusthammerBuyFactory(Item item,int price,int maxUses,int experience){
+        return new RusthammerBuyFactory(item, price, maxUses, experience);
     }
 }

@@ -170,7 +170,6 @@ public class RusthammerTrader extends MerchantEntity {
         if (!this.world.isClient && canDespawn) {
            this.tickDespawnDelay();
         }
-        restockAndUpdateDemandBonus();
     }
 
     private void tickDespawnDelay() {
@@ -178,6 +177,10 @@ public class RusthammerTrader extends MerchantEntity {
            this.discard();
         }
         
+        tryRestock();
+    }
+
+    private void tryRestock() {
         long lastPlusADay = this.lastRestockTime + 12000L;
         long time = this.world.getTime();
         boolean canRestock = time > lastPlusADay;

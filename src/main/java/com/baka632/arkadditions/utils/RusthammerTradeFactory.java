@@ -10,7 +10,7 @@ import net.minecraft.village.TradeOffer;
 import net.minecraft.village.TradeOffers.Factory;
 import com.baka632.arkadditions.init.ModItems;
 
-public class RusthammerTraderTradeFactory implements Factory {
+public class RusthammerTradeFactory implements Factory {
     private final ItemStack sell;
     private final int price;
     private final int count;
@@ -18,7 +18,7 @@ public class RusthammerTraderTradeFactory implements Factory {
     private final int experience;
     private final float multiplier;
 
-    public RusthammerTraderTradeFactory(ItemStack stack, int price, int count, int maxUses, int experience, float multiplier) {
+    public RusthammerTradeFactory(ItemStack stack, int price, int count, int maxUses, int experience, float multiplier) {
         this.sell = stack;
         this.price = price;
         this.count = count;
@@ -27,19 +27,19 @@ public class RusthammerTraderTradeFactory implements Factory {
         this.multiplier = multiplier;
      }
 
-    public RusthammerTraderTradeFactory(Block block, int price, int count, int maxUses, int experience) {
+    public RusthammerTradeFactory(Block block, int price, int count, int maxUses, int experience) {
         this(new ItemStack(block), price, count, maxUses, experience);
     }
   
-    public RusthammerTraderTradeFactory(Item item, int price, int count, int experience) {
+    public RusthammerTradeFactory(Item item, int price, int count, int experience) {
         this((new ItemStack(item)), price, count, 12, experience);
     }
   
-    public RusthammerTraderTradeFactory(Item item, int price, int count, int maxUses, int experience) {
+    public RusthammerTradeFactory(Item item, int price, int count, int maxUses, int experience) {
         this(new ItemStack(item), price, count, maxUses, experience);
     }
   
-    public RusthammerTraderTradeFactory(ItemStack stack, int price, int count, int maxUses, int experience) {
+    public RusthammerTradeFactory(ItemStack stack, int price, int count, int maxUses, int experience) {
         this(stack, price, count, maxUses, experience, 0.05F);
     }
 
