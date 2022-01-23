@@ -17,8 +17,8 @@ public class RusthammerTraderRender extends MobEntityRenderer<RusthammerTrader, 
 
     public RusthammerTraderRender(Context context) {
         super(context, new RusthammerTraderModel(context.getPart(EntityModelLayers.WANDERING_TRADER)), 0.5f);
-        this.addFeature(new HeadFeatureRenderer(this, context.getModelLoader()));
-        this.addFeature(new VillagerHeldItemFeatureRenderer(this));
+        this.addFeature(new HeadFeatureRenderer<>(this, context.getModelLoader()));
+        this.addFeature(new VillagerHeldItemFeatureRenderer<>(this));
     }
  
     @Override

@@ -7,7 +7,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 
-import com.baka632.arkadditions.init.ClientInit;
 import com.baka632.arkadditions.init.ModBlocks;
 import com.baka632.arkadditions.init.ModEntities;
 import com.baka632.arkadditions.init.ModItems;

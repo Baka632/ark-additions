@@ -1,12 +1,15 @@
 package com.baka632.arkadditions.entity.passive;
 
-import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
+import java.util.Iterator;
+
+import com.baka632.arkadditions.utils.RusthammerTraderOffers;
+
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ExperienceOrbEntity;
+import net.minecraft.entity.ai.pathing.MobNavigation;
 import net.minecraft.entity.ai.goal.EscapeDangerGoal;
 import net.minecraft.entity.ai.goal.FleeEntityGoal;
 import net.minecraft.entity.ai.goal.GoToWalkTargetGoal;
-import net.minecraft.entity.ai.goal.HoldInHandsGoal;
 import net.minecraft.entity.ai.goal.LookAtCustomerGoal;
 import net.minecraft.entity.ai.goal.LookAtEntityGoal;
 import net.minecraft.entity.ai.goal.StopAndLookAtEntityGoal;
@@ -34,21 +37,26 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.village.TradeOffer;
 import net.minecraft.village.TradeOfferList;
-import net.minecraft.village.TradeOffers;
 import net.minecraft.village.TradeOffers.Factory;
 import net.minecraft.world.World;
 
 public class RusthammerTrader extends MerchantEntity {
 
+    private long lastRestockTime;
+    private long lastRestockCheckTime;
     private boolean canDespawn = true;
     private int despawnDelay = 72000;
-    private Int2ObjectMap<Factory[]> rusthammerTraderTrades;
 
     private static final String CAN_DESPAWN_STRING = "CanDespawn";
     private static final String DESPAWN_DELAY_STRING = "DespawnDelay";
+    private static final String LAST_RESTOCK_TIME_STRING = "LastRestock";
 
     public RusthammerTrader(EntityType<? extends MerchantEntity> entityType, World world) {
         super(entityType, world);
+        MobNavigation nav = (MobNavigation)this.getNavigation();
+        nav.setCanPathThroughDoors(true);
+        nav.setCanEnterOpenDoors(true);
+        this.getNavigation().setCanSwim(true);
     }
 
     @Override
@@ -61,17 +69,10 @@ public class RusthammerTrader extends MerchantEntity {
 
     @Override
     protected void fillRecipes() {
-        Factory[] factorys = TradeOffers.WANDERING_TRADER_TRADES.get(1);
-        Factory[] factorys2 = TradeOffers.WANDERING_TRADER_TRADES.get(2);
-        if (factorys != null && factorys2 != null) {
+        Factory[] factorys = RusthammerTraderOffers.RUSTHAMMER_TRADER_TRADES.get(1);
+        if (factorys != null) {
             TradeOfferList tradeOfferList = this.getOffers();
             this.fillRecipesFromPool(tradeOfferList, factorys, 5);
-            int i = this.random.nextInt(factorys2.length);
-            Factory factory = factorys2[i];
-            TradeOffer tradeOffer = factory.create(this, this.random);
-            if (tradeOffer != null) {
-                tradeOfferList.add(tradeOffer);
-            }
         }
     }
 
@@ -108,6 +109,7 @@ public class RusthammerTrader extends MerchantEntity {
     @Override
     public void writeCustomDataToNbt(NbtCompound nbt) {
         super.writeCustomDataToNbt(nbt);
+        nbt.putLong(LAST_RESTOCK_TIME_STRING, this.lastRestockTime);
         nbt.putInt(DESPAWN_DELAY_STRING, this.despawnDelay);
         nbt.putBoolean(CAN_DESPAWN_STRING, this.canDespawn);
     }
@@ -120,7 +122,11 @@ public class RusthammerTrader extends MerchantEntity {
         }
 
         if (nbt.contains(CAN_DESPAWN_STRING)) {
-           this.canDespawn = nbt.getBoolean(CAN_DESPAWN_STRING);
+            this.canDespawn = nbt.getBoolean(CAN_DESPAWN_STRING);
+        }
+
+        if (nbt.contains(LAST_RESTOCK_TIME_STRING)) {
+            this.lastRestockTime = nbt.getLong(LAST_RESTOCK_TIME_STRING);
         }
     }
 
@@ -164,13 +170,41 @@ public class RusthammerTrader extends MerchantEntity {
         if (!this.world.isClient && canDespawn) {
            this.tickDespawnDelay();
         }
-  
+        restockAndUpdateDemandBonus();
     }
 
     private void tickDespawnDelay() {
         if (this.despawnDelay > 0 && !this.hasCustomer() && --this.despawnDelay == 0) {
            this.discard();
         }
-  
+        
+        long lastPlusADay = this.lastRestockTime + 12000L;
+        long time = this.world.getTime();
+        boolean canRestock = time > lastPlusADay;
+        long days = this.world.getTimeOfDay();
+        if (this.lastRestockCheckTime > 0L) {
+            long o = this.lastRestockCheckTime / 24000L;
+            long p = days / 24000L;
+            canRestock |= p > o;
+        }
+
+        this.lastRestockCheckTime = days;
+
+        if(canRestock){
+            this.lastRestockTime = time;
+            restockAndUpdateDemandBonus();
+            this.getOffers().clear();
+            fillRecipes();
+        }
     }
+
+    private void restockAndUpdateDemandBonus() {
+        Iterator<TradeOffer> offers = this.getOffers().iterator();
+  
+        while(offers.hasNext()) {
+            TradeOffer tradeOffer = offers.next();
+            tradeOffer.resetUses();
+            tradeOffer.updateDemandBonus();
+        }
+     }
 }
