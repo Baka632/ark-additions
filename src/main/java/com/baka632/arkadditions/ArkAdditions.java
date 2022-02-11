@@ -11,6 +11,7 @@ import com.baka632.arkadditions.init.ModBlocks;
 import com.baka632.arkadditions.init.ModEntities;
 import com.baka632.arkadditions.init.ModItems;
 import com.baka632.arkadditions.init.ModLootTables;
+import com.baka632.arkadditions.init.ModStructures;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -21,10 +22,6 @@ public class ArkAdditions implements ModInitializer {
 	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final Logger LOGGER = LogManager.getLogger("ArkAdditions");
 	public static final String MODID = "arkadditions";
-
-	//Item group
-	public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.create(
-		new Identifier(MODID, "arkadditions_itemgroup")).icon(() -> new ItemStack(Items.BOWL)).build();
 
 	@Override
 	public void onInitialize() {
@@ -37,5 +34,6 @@ public class ArkAdditions implements ModInitializer {
 		ModBlocks.init();
 		ModLootTables.init();
 		ModEntities.init();
+		ModStructures.init();
 	}
 }

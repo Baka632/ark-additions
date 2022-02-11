@@ -4,5 +4,8 @@
     "item.arkadditions.wondrous_post_card.tooltip" : "Different stories take root in different lands, and the scenery is always there to tell without a word",
     "item.arkadditions.wondrous_post_card.tooltip.tradable" : "Can be used to exchange for goods with the staff of branch offices everywhere",
     "item.arkadditions.originium_ingot" : "Originium Ingot",
-    "entity.arkadditions.rusthammer_trader" : "Rusthammer trader"
+    "item.arkadditions.indigo_staff" : "Indigo's Staff",
+    "item.arkadditions.mod_icon" : "Icon of Ark Additions",
+    "entity.arkadditions.rusthammer_trader" : "Rusthammer trader",
+    "entity.arkadditions.indigo_energy" : "Indigo Energy"
 }

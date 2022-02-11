@@ -1,0 +1,6 @@
+{
+    "parent": "arkadditions:item/indigo_staff",
+    "textures": {
+      "layer0": "arkadditions:item/indigo_staff_charge_3"
+    }
+}

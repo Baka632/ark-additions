@@ -1,0 +1,26 @@
+{
+    "parent": "minecraft:item/handheld",
+    "textures": {
+      "layer0": "arkadditions:item/indigo_staff"
+    },
+    "overrides": [
+        {
+            "predicate": {
+                "charge": 1
+            },
+            "model": "arkadditions:item/indigo_staff_charge_1"
+        },
+        {
+            "predicate": {
+                "charge": 2
+            },
+            "model": "arkadditions:item/indigo_staff_charge_2"
+        },
+        {
+            "predicate": {
+                "charge": 3
+            },
+            "model": "arkadditions:item/indigo_staff_charge_3"
+        }
+    ]
+}

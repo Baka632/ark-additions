@@ -4,5 +4,8 @@
     "item.arkadditions.wondrous_post_card.tooltip" : "不同的故事根植于不同的风土，景物总是无言地诉说",
     "item.arkadditions.wondrous_post_card.tooltip.tradable" : "可用来与各地办事处的工作人员交换物资",
     "item.arkadditions.originium_ingot" : "源石锭",
-    "entity.arkadditions.rusthammer_trader" : "锈锤商人"
+    "item.arkadditions.indigo_staff" : "深靛的法杖",
+    "item.arkadditions.mod_icon" : "Ark Additions图标",
+    "entity.arkadditions.rusthammer_trader" : "锈锤商人",
+    "entity.arkadditions.indigo_energy" : "射出的深靛能量"
 }
