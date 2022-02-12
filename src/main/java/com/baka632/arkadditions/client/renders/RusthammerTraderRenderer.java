@@ -12,10 +12,10 @@ import net.minecraft.client.render.entity.model.EntityModelLayers;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 
-public class RusthammerTraderRender extends MobEntityRenderer<RusthammerTrader, RusthammerTraderModel> {
+public class RusthammerTraderRenderer extends MobEntityRenderer<RusthammerTrader, RusthammerTraderModel> {
     private static final Identifier TEXTURE = new Identifier(ArkAdditions.MODID, "textures/entity/rusthammer_trader/rusthammer_trader.png");
 
-    public RusthammerTraderRender(Context context) {
+    public RusthammerTraderRenderer(Context context) {
         super(context, new RusthammerTraderModel(context.getPart(EntityModelLayers.WANDERING_TRADER)), 0.5f);
         this.addFeature(new HeadFeatureRenderer<>(this, context.getModelLoader()));
         this.addFeature(new VillagerHeldItemFeatureRenderer<>(this));

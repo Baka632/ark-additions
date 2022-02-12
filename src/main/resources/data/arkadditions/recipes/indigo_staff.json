@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+      "FFB",
+      "FPP",
+      "F  "
+    ],
+    "key": {
+      "F":{
+        "item": "minecraft:stick"
+      },
+      "P":{
+        "item" : "minecraft:amethyst_shard"
+      },
+      "B":{
+        "item" : "minecraft:amethyst_block"
+      }
+    },
+    "result": {
+      "item": "arkadditions:indigo_staff"
+    }
+}

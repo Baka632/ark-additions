@@ -1,11 +1,6 @@
 package com.baka632.arkadditions;
 
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.util.Identifier;
 
 import com.baka632.arkadditions.init.ModBlocks;
 import com.baka632.arkadditions.init.ModEntities;
@@ -29,7 +24,7 @@ public class ArkAdditions implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 
-		LOGGER.info("Welcome from Ark Additions!");
+		LOGGER.info("Hello from Ark Additions!");
 		ModItems.init();
 		ModBlocks.init();
 		ModLootTables.init();
