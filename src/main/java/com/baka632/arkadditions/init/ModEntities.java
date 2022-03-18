@@ -9,6 +9,7 @@ import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
+import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -28,7 +29,7 @@ public class ModEntities {
                 .build());
 
     public static void init() {
-        FabricDefaultAttributeRegistry.register(RUSTHAMMER_TRADER, RusthammerTrader.createMobAttributes());
+        FabricDefaultAttributeRegistry.register(RUSTHAMMER_TRADER, MobEntity.createMobAttributes());
     }
 
     private ModEntities(){
