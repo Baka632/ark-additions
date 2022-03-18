@@ -2,7 +2,7 @@
 
 # Ark Additions
 
-We are ARKNIGHTS
+Add Arknights contents to your Minecraft world
 
 </div>
 
